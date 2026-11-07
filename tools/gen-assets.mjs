@@ -174,8 +174,11 @@ const footer = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${FW} ${FH}
   </g>
   ${starField(110, FW, FH)}
   <circle cx="600" cy="300" r="170" fill="url(#planet)"/>
+  <circle cx="600" cy="300" r="170" fill="none" stroke="#C7B2FF" stroke-opacity="0.38" stroke-width="1.2"/>
+  <path d="M470 195 A170 170 0 0 1 730 195" fill="none" stroke="#FFB3D1" stroke-opacity="0.55" stroke-width="2" stroke-linecap="round" filter="url(#soft)"/>
   <g class="orbit"><ellipse cx="600" cy="300" rx="215" ry="34" fill="none" stroke="url(#ringGrad)" stroke-width="1.6" transform="rotate(-14 600 300)"/></g>
   <circle cx="809" cy="248" r="4.5" fill="#FFD9EC"/>
+  <circle cx="809" cy="248" r="11" fill="#FFB3D1" opacity="0.18" filter="url(#soft)"/>
   <text x="600" y="52" text-anchor="middle" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="12" letter-spacing="6" fill="#8D82B5">LET THE MACHINE DO THE REMEMBERING</text>
 </svg>
 `;
