@@ -1,8 +1,8 @@
-name: snake
+name: page
 
 on:
   schedule:
-    # 每天 03:20 UTC 重新生成一次
+    # 每天 03:20 UTC 重新合成一次
     - cron: "20 3 * * *"
   workflow_dispatch:
   push:
@@ -28,8 +28,8 @@ jobs:
           outputs: |
             dist/snake.svg?color_snake=%23FFB3D1&color_dots=%23171026,%23241738,%233A2470,%236C3BFF,%23C7B2FF
 
-      - name: Put the snake in space
-        run: node tools/space-bg.mjs dist/snake.svg
+      - name: Compose the starfield page
+        run: node tools/build-page.mjs dist/snake.svg dist/page.svg
 
       - name: Push to output branch
         uses: crazy-max/ghaction-github-pages@v4
