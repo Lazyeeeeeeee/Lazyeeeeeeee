@@ -78,7 +78,7 @@ function rule(y, opts = {}) {
 function sectionTitle(y, str) {
   return `<g>
     ${sparkle(600 - (str.length * 17) / 2 - 26, y - 10, 5)}
-    ${text(600, y, str, { size: 30, fill: C.text, weight: 600, ls: 2 })}
+    ${text(600, y, str, { size: 33, fill: C.text, weight: 600, ls: 2 })}
     ${sparkle(600 + (str.length * 17) / 2 + 26, y - 10, 5)}
   </g>`;
 }
@@ -89,18 +89,18 @@ function card(x, y, w, h, name, lang, langColor, desc) {
     <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="16" fill="#FFFFFF" fill-opacity="0.035"/>
     <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="16" fill="none" stroke="#C7B2FF" stroke-opacity="0.16"/>
     <line x1="${x + 24}" y1="${y + 1}" x2="${x + w - 24}" y2="${y + 1}" stroke="url(#p-top)" stroke-width="1"/>
-    ${text(x + 28, y + 54, name, { size: 20, fill: C.text, weight: 600, family: MONO, anchor: 'start' })}
-    <circle cx="${x + 31}" cy="${y + 78}" r="3.5" fill="${langColor}"/>
-    ${text(x + 44, y + 83, lang, {
-      size: 12,
+    ${text(x + 28, y + 56, name, { size: 22, fill: C.text, weight: 600, family: MONO, anchor: 'start' })}
+    <circle cx="${x + 31}" cy="${y + 86}" r="3.5" fill="${langColor}"/>
+    ${text(x + 44, y + 91, lang, {
+      size: 13,
       fill: C.muted,
       family: MONO,
       anchor: 'start',
       ls: 1,
     })}
     ${text(x + w - 32, y + 54, '↗', { size: 18, fill: C.violet, anchor: 'end', opacity: 0.55 })}
-    ${text(x + 28, y + 118, desc[0], { size: 15, fill: C.dim, anchor: 'start' })}
-    ${desc[1] ? text(x + 28, y + 146, desc[1], { size: 15, fill: C.dim, anchor: 'start' }) : ''}
+    ${text(x + 28, y + 124, desc[0], { size: 17, fill: C.dim, anchor: 'start' })}
+    ${desc[1] ? text(x + 28, y + 154, desc[1], { size: 17, fill: C.dim, anchor: 'start' }) : ''}
   </g>`;
 }
 
@@ -167,10 +167,15 @@ const page = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wi
     <stop offset="0.5" stop-color="#C7B2FF" stop-opacity="0.45"/>
     <stop offset="1" stop-color="#C7B2FF" stop-opacity="0"/>
   </linearGradient>
-  <linearGradient id="p-trail" x1="0" y1="0" x2="1" y2="0">
+  <linearGradient id="p-trail" gradientUnits="userSpaceOnUse" x1="-200" y1="0" x2="0" y2="0">
     <stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/>
-    <stop offset="0.8" stop-color="#D9E6FF" stop-opacity="0.6"/>
-    <stop offset="1" stop-color="#FFFFFF" stop-opacity="1"/>
+    <stop offset="0.55" stop-color="#CFE0FF" stop-opacity="0.3"/>
+    <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.95"/>
+  </linearGradient>
+  <linearGradient id="p-trail2" gradientUnits="userSpaceOnUse" x1="-120" y1="0" x2="0" y2="0">
+    <stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/>
+    <stop offset="0.6" stop-color="#FFD9EC" stop-opacity="0.3"/>
+    <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.9"/>
   </linearGradient>
   <filter id="p-haze" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="60"/></filter>
   <filter id="p-soft" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="8"/></filter>
@@ -181,10 +186,10 @@ const page = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wi
     @keyframes p-tw1{0%,100%{opacity:.10}50%{opacity:.46}}
     @keyframes p-tw2{0%,100%{opacity:.26}50%{opacity:.82}}
     @keyframes p-tw3{0%,100%{opacity:.40}50%{opacity:1}}
-    .p-shot{animation:p-shot 13s linear infinite}
-    .p-shot2{animation:p-shot2 19s linear infinite;animation-delay:6s}
-    @keyframes p-shot{0%{transform:translate(0,0);opacity:0}2%{opacity:1}8%{opacity:.85}13%{transform:translate(430px,190px);opacity:0}100%{transform:translate(430px,190px);opacity:0}}
-    @keyframes p-shot2{0%{transform:translate(0,0);opacity:0}2%{opacity:.9}7%{opacity:.7}11%{transform:translate(-360px,150px);opacity:0}100%{transform:translate(-360px,150px);opacity:0}}
+    .p-shot{animation:p-shot 12s linear infinite}
+    .p-shot2{animation:p-shot2 17s linear infinite;animation-delay:7s}
+    @keyframes p-shot{0%{transform:translate(0,0);opacity:0}2%{opacity:0}5%{opacity:1}17%{opacity:.95}23%{transform:translate(420px,252px);opacity:0}100%{transform:translate(420px,252px);opacity:0}}
+    @keyframes p-shot2{0%{transform:translate(0,0);opacity:0}3%{opacity:0}6%{opacity:.85}15%{transform:translate(330px,258px);opacity:0}100%{transform:translate(330px,258px);opacity:0}}
     @media (prefers-reduced-motion:reduce){*{animation:none!important}}
   </style>
 </defs>
@@ -199,25 +204,38 @@ const page = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wi
 </g>
 ${starField(560)}
 ${sparkle(196, 150, 8)}${sparkle(1016, 118, 6)}${sparkle(880, 700, 5)}${sparkle(240, 1240, 5)}${sparkle(1040, 1560, 6)}
-<g class="p-shot"><rect x="120" y="120" width="130" height="2" rx="1" fill="url(#p-trail)"/></g>
-<g class="p-shot2"><rect x="1080" y="880" width="110" height="1.6" rx="1" fill="url(#p-trail)"/></g>
+<g class="p-shot"><g transform="translate(160,150) rotate(31)">
+
+  <path d="M0 -5.2L-210 0L0 5.2Z" fill="url(#p-trail)" filter="url(#p-soft)" opacity="0.55"/>
+  <path d="M0 -2.8L-200 0L0 2.8Z" fill="url(#p-trail)"/>
+  <path d="M0 -1.3L-96 0L0 1.3Z" fill="url(#p-trail2)"/>
+  <circle cx="0" cy="0" r="2.6" fill="#FFFFFF"/>
+  <circle cx="0" cy="0" r="12" fill="#CFE0FF" opacity="0.22" filter="url(#p-soft)"/>
+</g></g>
+<g class="p-shot2"><g transform="translate(1010,420) rotate(38)">
+
+  <path d="M0 -4L-128 0L0 4Z" fill="url(#p-trail2)" filter="url(#p-soft)" opacity="0.5"/>
+  <path d="M0 -1.9L-120 0L0 1.9Z" fill="url(#p-trail2)"/>
+  <circle cx="0" cy="0" r="1.7" fill="#FFFFFF"/>
+  <circle cx="0" cy="0" r="8" fill="#CFE0FF" opacity="0.18" filter="url(#p-soft)"/>
+</g></g>
 
 <!-- Hero -->
-${text(600, 300, 'Lazyeeeeeeee', { size: 72, fill: 'url(#p-name)', weight: 700, ls: 3, family: MONO, opacity: 0.45 })}
-${text(600, 300, 'Lazyeeeeeeee', { size: 72, fill: 'url(#p-name)', weight: 700, ls: 3, family: MONO })}
-${text(600, 352, 'BUILD LAZIER · LEARN FASTER', { size: 13, fill: C.muted, ls: 7, family: MONO })}
+${text(600, 300, 'Lazyeeeeeeee', { size: 76, fill: 'url(#p-name)', weight: 700, ls: 3, family: MONO, opacity: 0.45 })}
+${text(600, 300, 'Lazyeeeeeeee', { size: 76, fill: 'url(#p-name)', weight: 700, ls: 3, family: MONO })}
+${text(600, 352, 'BUILD LAZIER · LEARN FASTER', { size: 14, fill: C.muted, ls: 7, family: MONO })}
 
 ${rule(610)}
 
 <!-- 我在做什么 -->
 ${sectionTitle(670, '我在做什么')}
 ${text(600, 736, 'LazyLearn —— 把「刷题 → 模考 → AI 讲解 → 错题记忆」串成闭环的学习系统', {
-  size: 21,
+  size: 24,
   fill: C.text,
 })}
-${text(600, 780, '学习者不缺题，缺的是反馈密度。', { size: 19, fill: C.dim })}
+${text(600, 780, '学习者不缺题，缺的是反馈密度。', { size: 21, fill: C.dim })}
 ${text(600, 818, '所以整套设计都把 agent 放在「出反馈」的位置上，人只负责最后一步判断。', {
-  size: 19,
+  size: 20,
   fill: C.muted,
 })}
 
@@ -225,11 +243,11 @@ ${rule(880)}
 
 <!-- 两个客户端 -->
 ${sectionTitle(940, '两个客户端')}
-${card(120, 990, 460, 180, 'lazylearn-obsidian', 'TypeScript', C.violet, [
+${card(120, 990, 460, 190, 'lazylearn-obsidian', 'TypeScript', C.violet, [
   '在 Obsidian 里直接练题、归档错题，',
   '笔记双向同步。',
 ])}
-${card(620, 990, 460, 180, 'lazylearn-marginnote-plugin', 'JavaScript', C.pink, [
+${card(620, 990, 460, 190, 'lazylearn-marginnote-plugin', 'JavaScript', C.pink, [
   'MarginNote 4 摘录一键成闪卡，',
   '带 AI 辅导与题库检索。',
 ])}
@@ -238,12 +256,12 @@ ${rule(1220)}
 
 <!-- 贡献 -->
 ${sectionTitle(1280, '贡献')}
-${text(600, 1322, '公开 + 私有提交，每天自动重绘', { size: 16, fill: C.muted, ls: 1 })}
+${text(600, 1322, '公开 + 私有提交，每天自动重绘', { size: 17, fill: C.muted, ls: 1 })}
 ${snake ? snake.svg : `<rect x="80" y="1360" width="1040" height="227" rx="14" fill="#FFFFFF" fill-opacity="0.02"/>`}
 
 <!-- Footer -->
 ${rule(1620, { dot: false })}
-${text(600, 1658, 'LET THE MACHINE DO THE REMEMBERING', { size: 12, fill: C.muted, ls: 6, family: MONO })}
+${text(600, 1658, 'LET THE MACHINE DO THE REMEMBERING', { size: 13, fill: C.muted, ls: 6, family: MONO })}
 <circle cx="600" cy="1880" r="200" fill="url(#p-planet)"/>
 <circle cx="600" cy="1880" r="200" fill="none" stroke="#C7B2FF" stroke-opacity="0.45" stroke-width="1.2"/>
 <path d="M442 1757A200 200 0 0 1 758 1757" fill="none" stroke="#FFB3D1" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round" filter="url(#p-soft)"/>
