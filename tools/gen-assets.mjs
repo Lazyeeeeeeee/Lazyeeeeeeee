@@ -152,10 +152,11 @@ const footer = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${FW} ${FH}
       <stop offset="0" stop-color="#08060F"/>
       <stop offset="1" stop-color="#150B2A"/>
     </linearGradient>
-    <radialGradient id="planet" cx="0.35" cy="0.3" r="0.8">
-      <stop offset="0" stop-color="#3A2470"/>
-      <stop offset="0.6" stop-color="#1A1033"/>
-      <stop offset="1" stop-color="#0B0718"/>
+    <radialGradient id="planet" cx="0.36" cy="0.26" r="0.82">
+      <stop offset="0" stop-color="#6B45C8"/>
+      <stop offset="0.38" stop-color="#33205E"/>
+      <stop offset="0.75" stop-color="#170E2E"/>
+      <stop offset="1" stop-color="#0A0716"/>
     </radialGradient>
     <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#C7B2FF" stop-opacity="0"/>
@@ -168,13 +169,13 @@ const footer = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${FW} ${FH}
     </style>
   </defs>
   <rect width="${FW}" height="${FH}" fill="url(#sky2)"/>
-  <g filter="url(#haze)" opacity="0.85">
-    <ellipse cx="600" cy="240" rx="400" ry="150" fill="url(#nebA)"/>
-    <ellipse cx="240" cy="180" rx="220" ry="90" fill="url(#nebB)"/>
+  <g filter="url(#haze)" opacity="0.8">
+    <ellipse cx="210" cy="170" rx="250" ry="120" fill="url(#nebA)"/>
+    <ellipse cx="1000" cy="150" rx="230" ry="110" fill="url(#nebB)"/>
   </g>
   ${starField(110, FW, FH)}
   <circle cx="600" cy="300" r="170" fill="url(#planet)"/>
-  <circle cx="600" cy="300" r="170" fill="none" stroke="#C7B2FF" stroke-opacity="0.38" stroke-width="1.2"/>
+  <circle cx="600" cy="300" r="170" fill="none" stroke="#C7B2FF" stroke-opacity="0.55" stroke-width="1.2"/>
   <path d="M470 195 A170 170 0 0 1 730 195" fill="none" stroke="#FFB3D1" stroke-opacity="0.55" stroke-width="2" stroke-linecap="round" filter="url(#soft)"/>
   <g class="orbit"><ellipse cx="600" cy="300" rx="215" ry="34" fill="none" stroke="url(#ringGrad)" stroke-width="1.6" transform="rotate(-14 600 300)"/></g>
   <circle cx="809" cy="248" r="4.5" fill="#FFD9EC"/>
