@@ -57,7 +57,7 @@ const COMMON_DEFS = `
 
 /* ------------------------------- hero ------------------------------- */
 const HW = 1200;
-const HH = 460;
+const HH = 520;
 
 const hero = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${HW} ${HH}" width="${HW}" height="${HH}" role="img" aria-label="Lazyeeeeeeee">
   <title>Lazyeeeeeeee — build lazier, learn faster</title>
@@ -100,41 +100,50 @@ const hero = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${HW} ${HH}" 
   ${sparkle(196, 118, 8)}${sparkle(1018, 84, 6)}${sparkle(892, 372, 5)}${sparkle(128, 348, 4)}
   <g class="shoot"><rect x="120" y="60" width="130" height="2" rx="1" fill="url(#trail)"/></g>
   <g class="shoot2"><rect x="1080" y="96" width="110" height="1.6" rx="1" fill="url(#trail)"/></g>
-  <text x="600" y="214" text-anchor="middle" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="66" font-weight="700" letter-spacing="3" fill="url(#nameGrad)" opacity="0.5" filter="url(#soft)">Lazyeeeeeeee</text>
-  <text x="600" y="214" text-anchor="middle" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="66" font-weight="700" letter-spacing="3" fill="url(#nameGrad)">Lazyeeeeeeee</text>
-  <text x="600" y="258" text-anchor="middle" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="13" letter-spacing="7" fill="#9A8FC0">BUILD LAZIER · LEARN FASTER</text>
+  <text x="600" y="248" text-anchor="middle" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="70" font-weight="700" letter-spacing="3" fill="url(#nameGrad)" opacity="0.5" filter="url(#soft)">Lazyeeeeeeee</text>
+  <text x="600" y="248" text-anchor="middle" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="70" font-weight="700" letter-spacing="3" fill="url(#nameGrad)">Lazyeeeeeeee</text>
+  <text x="600" y="294" text-anchor="middle" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="13" letter-spacing="7" fill="#A79DC4">BUILD LAZIER · LEARN FASTER</text>
   <rect x="0" y="${HH - 1}" width="${HW}" height="1" fill="url(#hair)"/>
 </svg>
 `;
 
 /* ------------------------------ divider ----------------------------- */
 const DW = 1200;
-const DH = 52;
+const DH = 96;
 
 const divider = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${DW} ${DH}" width="${DW}" height="${DH}" role="img" aria-label="">
   <title>divider</title>
-  <defs>
-    <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#C7B2FF" stop-opacity="0"/>
-      <stop offset="0.5" stop-color="#C7B2FF" stop-opacity="0.75"/>
-      <stop offset="1" stop-color="#C7B2FF" stop-opacity="0"/>
+  <defs>${COMMON_DEFS}
+    <linearGradient id="band" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#06050D"/>
+      <stop offset="0.5" stop-color="#0E0A20"/>
+      <stop offset="1" stop-color="#06050D"/>
     </linearGradient>
-    <radialGradient id="dot" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0" stop-color="#FFB3D1" stop-opacity="0.95"/>
-      <stop offset="1" stop-color="#FFB3D1" stop-opacity="0"/>
-    </radialGradient>
-    <style>${MOTION}</style>
+    <linearGradient id="trail" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="0.8" stop-color="#D9E6FF" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="1"/>
+    </linearGradient>
+    <style>${MOTION}
+      .beam{animation:beam 11s ease-in-out infinite}
+      @keyframes beam{0%,100%{transform:translateX(-140px);opacity:0}12%{opacity:1}55%{opacity:.85}68%{transform:translateX(1080px);opacity:0}100%{transform:translateX(1080px);opacity:0}}
+    </style>
   </defs>
-  <line x1="0" y1="26" x2="${DW}" y2="26" stroke="url(#rule)" stroke-width="1"/>
-  <circle cx="600" cy="26" r="14" fill="url(#dot)"/>
-  <circle cx="600" cy="26" r="2.2" fill="#FFE3F0"/>
-  ${starField(9, DW, DH)}
+  <rect width="${DW}" height="${DH}" fill="url(#band)"/>
+  <g filter="url(#haze)" opacity="0.6">
+    <ellipse cx="280" cy="48" rx="270" ry="95" fill="url(#nebA)"/>
+    <ellipse cx="920" cy="62" rx="250" ry="85" fill="url(#nebB)"/>
+  </g>
+  ${starField(64, DW, DH)}
+  <g class="beam"><rect x="80" y="34" width="96" height="1.6" rx="1" fill="url(#trail)"/></g>
+  <rect x="0" y="0" width="${DW}" height="1" fill="#C7B2FF" opacity="0.14"/>
+  <rect x="0" y="${DH - 1}" width="${DW}" height="1" fill="#C7B2FF" opacity="0.14"/>
 </svg>
 `;
 
 /* ------------------------------- footer ----------------------------- */
 const FW = 1200;
-const FH = 200;
+const FH = 240;
 
 const footer = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${FW} ${FH}" width="${FW}" height="${FH}" role="img" aria-label="let the machine do the remembering">
   <title>let the machine do the remembering</title>
@@ -154,19 +163,20 @@ const footer = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${FW} ${FH}
       <stop offset="1" stop-color="#C7B2FF" stop-opacity="0"/>
     </linearGradient>
     <style>${MOTION}
-      .orbit{animation:orbit 26s linear infinite;transform-origin:600px 360px}
+      .orbit{animation:orbit 26s linear infinite;transform-origin:600px 300px}
       @keyframes orbit{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
     </style>
   </defs>
   <rect width="${FW}" height="${FH}" fill="url(#sky2)"/>
-  <g filter="url(#haze)" opacity="0.8">
-    <ellipse cx="600" cy="250" rx="380" ry="150" fill="url(#nebA)"/>
+  <g filter="url(#haze)" opacity="0.85">
+    <ellipse cx="600" cy="240" rx="400" ry="150" fill="url(#nebA)"/>
+    <ellipse cx="240" cy="180" rx="220" ry="90" fill="url(#nebB)"/>
   </g>
-  ${starField(90, FW, FH)}
-  <circle cx="600" cy="360" r="150" fill="url(#planet)"/>
-  <g class="orbit"><ellipse cx="600" cy="360" rx="215" ry="34" fill="none" stroke="url(#ringGrad)" stroke-width="1.6" transform="rotate(-14 600 360)"/></g>
-  <circle cx="836" cy="308" r="2.6" fill="#FFD9EC"/>
-  <text x="600" y="46" text-anchor="middle" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="12" letter-spacing="6" fill="#8D82B5">LET THE MACHINE DO THE REMEMBERING</text>
+  ${starField(110, FW, FH)}
+  <circle cx="600" cy="300" r="170" fill="url(#planet)"/>
+  <g class="orbit"><ellipse cx="600" cy="300" rx="215" ry="34" fill="none" stroke="url(#ringGrad)" stroke-width="1.6" transform="rotate(-14 600 300)"/></g>
+  <circle cx="809" cy="248" r="4.5" fill="#FFD9EC"/>
+  <text x="600" y="52" text-anchor="middle" font-family="'SF Mono',Menlo,Consolas,monospace" font-size="12" letter-spacing="6" fill="#8D82B5">LET THE MACHINE DO THE REMEMBERING</text>
 </svg>
 `;
 
